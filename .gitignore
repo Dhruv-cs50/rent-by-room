@@ -5,3 +5,7 @@ dist
 .claude-flow/data
 .claude-flow/logs
 .claude-flow/sessions
+
+# Playwright verification artifacts
+.playwright-mcp
+*.jpeg
