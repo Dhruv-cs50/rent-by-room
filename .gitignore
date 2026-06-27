@@ -9,3 +9,4 @@ dist
 # Playwright verification artifacts
 .playwright-mcp
 *.jpeg
+.vercel
