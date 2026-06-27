@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-06-27T06:07:17.894Z",
+  "projectRoot": "/Users/dhruvshah/Desktop/Home Detail Services/rent-by-room",
+  "structure": {
+    "hasPackageJson": true,
+    "hasTsConfig": false,
+    "hasClaudeConfig": true,
+    "hasClaudeFlow": true
+  },
+  "scannedAt": 1782540437894
+}
