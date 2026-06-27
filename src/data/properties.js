@@ -63,7 +63,7 @@ export const PROPERTIES = [
     tag: "Twelve Bridges Gem",
     price: 1050,
     beds: 6, baths: 3, stories: 2,
-    heroImg: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=80",
+    heroImg: "/listings/940-cabra-street/exterior.jpg",
     features: [
       "Private unfurnished bedrooms with full bathroom — solar powered",
       "King-size master suite with walk-in closet — perfect for couples",
@@ -73,22 +73,36 @@ export const PROPERTIES = [
       "Backyard patio with stunning sunset views over open field",
     ],
     rooms: [
-      { label: "Kitchen", sub: "Common Area", img: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80" },
-      { label: "Non-Primary Bedroom", sub: "Private", img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&q=80" },
-      { label: "Non-Primary Bathroom", sub: "Shared", img: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&q=80" },
-      { label: "Living Room", sub: "Common Area", img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&q=80" },
-      { label: "Backyard Porch", sub: "Common Area", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" },
-      { label: "Backyard", sub: "Common Area", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" },
+      { label: "Kitchen", sub: "Common Area", img: "/listings/940-cabra-street/kitchen.jpg" },
+      { label: "Dining Area", sub: "Common Area", img: "/listings/940-cabra-street/kitchen-dining.jpg" },
+      { label: "Living Room", sub: "Common Area", img: "/listings/940-cabra-street/living-room-2.jpg" },
+      { label: "Non-Primary Bedroom", sub: "Private", img: "/listings/940-cabra-street/bedroom.jpg" },
+      { label: "Non-Primary Bathroom", sub: "Shared", img: "/listings/940-cabra-street/bathroom.jpg" },
+      { label: "Backyard", sub: "Common Area", img: "/listings/940-cabra-street/backyard.jpg" },
+    ],
+    // Real photos from the 940 Cabra Street presentation — explicit gallery (all 9)
+    gallery: [
+      "/listings/940-cabra-street/exterior.jpg",
+      "/listings/940-cabra-street/kitchen-dining.jpg",
+      "/listings/940-cabra-street/kitchen.jpg",
+      "/listings/940-cabra-street/living-room-1.jpg",
+      "/listings/940-cabra-street/living-room-2.jpg",
+      "/listings/940-cabra-street/bedroom.jpg",
+      "/listings/940-cabra-street/bathroom.jpg",
+      "/listings/940-cabra-street/patio.jpg",
+      "/listings/940-cabra-street/backyard.jpg",
     ],
     nearby: ["Walgreens — 0.75 mi", "Kaiser — 0.1 mi", "Lincoln Parks & Recreation — 0.2 mi", "Grocery & hardware stores within 2 mi"],
   },
 ];
 
-// gallery = hero image followed by every room image (deduped)
+// For properties without an explicit gallery, build one from hero + room images.
 PROPERTIES.forEach((p) => {
-  p.gallery = [p.heroImg, ...p.rooms.map((r) => r.img)].filter(
-    (url, i, arr) => arr.indexOf(url) === i
-  );
+  if (!p.gallery) {
+    p.gallery = [p.heroImg, ...p.rooms.map((r) => r.img)].filter(
+      (url, i, arr) => arr.indexOf(url) === i
+    );
+  }
 });
 
 export const getPropertyBySlug = (slug) =>
